@@ -59,15 +59,6 @@ if search_btn:
         medication = Medication(cleaned_name)
         with st.spinner("Fetching drug information..."):
             drug_info = medication.fetch_info()
-        
-        if isinstance(drug_info, dict) and drug_info.get("error"):
-            if drug_info["error"] == "not_found":
-                st.warning(drug_info["message"])
-                st.stop()
-
-            if drug_info["error"] == "network":
-                st.error(drug_info["message"])
-                st.stop()
 
 
         # ---------------- DISPLAY RESULTS ----------------
